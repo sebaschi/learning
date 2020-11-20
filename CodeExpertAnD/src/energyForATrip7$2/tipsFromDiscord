@@ -1,0 +1,16 @@
+neK [十二]Yesterday at 10:59 PM
+well what I got so far is defining a base case where he wants to move from 0 to  0 which costs 0 energy, 
+and then implemented the climb and walk  options DP[i] = DP[i-1] + 1 / 2. Then about the jump, 
+I figured if the position lets say i+ 6 isn't a wall and there are more than 3 walls between i and i+6 then its more efficient to jump, 
+but maybe thats where I'm wrong
+
+
+you need to check all three possibilities for each entry
+jumping to it, walking to it, and climbing to it
+but obv there are restrictions, like you can't jump to position 4 or you can't walk or jump to a wall
+but that's for you to implement in your code
+
+
+1) solve it recursively, express the cost of a specific position using recursion, take the minimum out of the three costs -> 50% correct
+2) make memoization, express the recursion using a DP table, by saving your results at the end -> 100% correct, but submission fucks up
+3) make your memoized algo iterative instead of recursive (for loop) -> submission is correct
