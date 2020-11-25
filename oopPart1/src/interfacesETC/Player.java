@@ -43,7 +43,7 @@ public class Player implements ISaveable{
 	}
 
 	@Override
-	public ist<String> write() {
+	public List<String> write() {
 		List<String> values = new ArrayList<String>();
 		values.add(0, this.name);
 		values.add(1, "" + this.hitPoints);
