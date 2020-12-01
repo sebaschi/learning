@@ -41,7 +41,18 @@ public class Main {
 		fcz.printCompareTo(hawthorne);
 		hawthorne.printCompareTo(fcz);
 		melbourne.printCompareTo(fremantle);
-
+		System.out.println();
+		
+		League<Team<FootballPlayer>> footL = new League<>("Championsleague");
+		
+		footL.addTeam(fcz);
+		footL.addTeam(melbourne);
+		footL.addTeam(hawthorne);
+		footL.addTeam(fremantle);
+		
+		League<Team<BaseballPlayer>> baseL = new League<>("baseballleugue");
+		
+		footL.printBoard();
 	}
 
 }
