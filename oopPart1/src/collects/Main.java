@@ -1,5 +1,6 @@
 package collects;
 
+
 public class Main {
 	
 	public static void print(String s) {
@@ -19,7 +20,8 @@ public class Main {
 		} else {
 			print("sorry seat is taken");
 		}
-	
+		int[] zero = { };
+	System.out.println(zero);
 	}
 
 }
