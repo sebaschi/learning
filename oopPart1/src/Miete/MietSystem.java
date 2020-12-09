@@ -18,7 +18,11 @@ public class MietSystem {
 	}
 
 	public void removeFlat(Flat flat) {
-		// TODO: Implementieren Sie die Methode
+		if(!flats.contains(flat)) {
+			throw new IllegalArgumentException();
+		} else {
+			flats.remove(flat);
+		}
 	}
 
 	public void changePrice(Flat flat, int pricediff) {
@@ -34,8 +38,18 @@ public class MietSystem {
 		return null;
 	}
 
-	public void createFlat(String name, int price) {
-		// TODO: Implementieren Sie die Methodejj
+	public void createFlat(String name, int price) throws IllegalArgumentException {
+		if(price < 0) {
+			throw new IllegalArgumentException();
+		} else {
+			for(Flat temp : flats) {
+				if(temp.getName().contentEquals(name)) {
+					throw new IllegalArgumentException();
+				}
+			}
+		}
+		Flat newFlat = new Flat(name, price, true);
+		flats.add(newFlat);
 	}
 
 	public int getMaxPrice() {
@@ -47,8 +61,33 @@ public class MietSystem {
 		// TODO: Implementieren Sie die Methodm e
 	}
 	
-	public void becomeCompetitive(int reduction) {
-		
+	public List<Flat> getOccupied() {
+		ArrayList<Flat> occupied = new ArrayList<>(flats.size()-1);
+		for(Flat temp : flats) {
+			if(temp.isOccupied()) {
+				occupied.add(temp);
+			}
+		}
+		return occupied;
+	}
+	
+	public void printFlats() {
+		Collections.sort(flats);
+	}
+	
+	public void becomeCompetitive(int reduction) throws IllegalArgumentException{
+		if(reduction < 0) {
+			throw new IllegalArgumentException();
+		}
+		for(Flat reds : flats) {
+			if(reds.isOccupied() == false) {
+				if(reds.getPrice()-reduction < 300) {
+					reds.setPrice(300);
+				} else {
+					reds.setPrice(reds.getPrice()-reduction);
+				}
+			}
+		}
 	}
 
 	// TODO: Erstellen Sie eine Methode getOccupied, welche eine Liste aller
